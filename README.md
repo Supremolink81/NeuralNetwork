@@ -9,6 +9,7 @@ well as other resources, for theoretical reference.
 To do:
 
 -Organize and document code
+
 -parse and test dataset
 
 # References
