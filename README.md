@@ -2,9 +2,16 @@
 
 Artificial neural network architecture made primarily for handwritten character recognition.
 
-Uses the EMNIST dataset of over 800,000 characters to train and test the model. Excluding a linear algebra library for ease of
-linear algebra calculations, all code is done from scratch, including tests and backpropagation. Used 3b1b's videos, as
-well as other resources, for theoretical reference.
+Neuron class to store information about neurons in the network, including:
+
+-activation (calculated using sigmoid activation function)
+
+-weighted connections to nodes in the next layer
+
+-bias
+
+Network class to store input layer, internal layers, and output layer as vectors. Uses gradient descent and backpropagation 
+to train the model, with tests conducted assuming the network is fully-connected
 
 To do:
 
