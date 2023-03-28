@@ -42,6 +42,12 @@ class network {
             return total_cost;
         }
 
+        /// <summary>
+        /// Initializes a matrix of neuron connection weights.
+        /// </summary>
+        /// <param name="input">: Current layer neurons</param>
+        /// <param name="output">: Next layer neurons</param>
+        /// <returns>The weight matrix</returns>
         MatrixXd initialize_weight_matrix(std::vector<neuron>& input, std::vector<neuron>& output) {
 
             MatrixXd weight_matrix(output.size(), input.size());
@@ -78,6 +84,14 @@ class network {
             return vec;
         }
 
+        /// <summary>
+        /// Calculate the activation of the next layer using the weight matrix, 
+        /// values of the current layer, and the bias.
+        /// </summary>
+        /// <param name="output">: Output layer reference</param>
+        /// <param name="weights">: The weight matrix</param>
+        /// <param name="values">: The value vector</param>
+        /// <param name="biases">: The bias vector</param>
         void get_results(std::vector<neuron>& output, MatrixXd& weights, VectorXd& values, VectorXd& biases) {
 
             VectorXd results_vec = (weights * values) + biases;
@@ -140,7 +154,7 @@ class network {
         /// 
         /// The amount of inputs must be equal to the input layer's size.
         /// </summary>
-        /// <param name="inputs"></param>
+        /// <param name="inputs">: The values to place in the input layer</param>
         void forward(std::vector<double> inputs) {
 
             assert(inputs.size() == input_layer.size(), "input vector's size must be the same size as the input layer's size");
@@ -151,6 +165,7 @@ class network {
 
             }
             
+            // initialize first layer to input layer values
             VectorXd input_values = initialize_vector(input_layer);
             VectorXd biases = initialize_vector(internal_layers[0], true);
             MatrixXd input_weights = initialize_weight_matrix(input_layer, internal_layers[0]);

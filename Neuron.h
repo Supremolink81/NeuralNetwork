@@ -5,6 +5,9 @@
 #include <random>
 #include <vector>
 
+/// <summary>
+/// Helper struct to store information about a neuron (activation, weighted connections, bias).
+/// </summary>
 class neuron {
 
 	private:
@@ -12,11 +15,15 @@ class neuron {
 		std::vector<double> weights;
 
 	public:
+
 		//Default constructor
+
 		neuron() {
 			value = 0.0;
 			bias = 0.0;
 		}
+
+		// Weight constructor
 
 		neuron(size_t w) {
 
@@ -33,6 +40,7 @@ class neuron {
 		}
 
 		//Value constructor
+
 		neuron(size_t w, double bias) {
 
 			// make a probability distribution for generating random weights and biases
