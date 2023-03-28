@@ -19,22 +19,32 @@ class neuron {
 		}
 
 		neuron(size_t w) {
+
+			// make a probability distribution for generating random weights and biases
 			std::default_random_engine generator{static_cast<unsigned long int>(time(0))};
 			std::uniform_real_distribution<double> distribution(-5.0, 5.0);
+
 			value = 0.0;
 			bias = 0.0;
 			weights.resize(w);
+
 			for (int i = 0; i < w; i++) weights[i] = distribution(generator);
+
 		}
 
 		//Value constructor
 		neuron(size_t w, double bias) {
+
+			// make a probability distribution for generating random weights and biases
 			std::default_random_engine generator{ static_cast<unsigned long int>(time(0)) };
 			std::uniform_real_distribution<double> distribution(-5.0, 5.0);
+
 			value = 0.0;
 			this->bias = bias;
 			weights.resize(w);
+
 			for (int i = 0; i < w; i++) weights[i] = distribution(generator);
+
 		}
 
 		/// <summary>
